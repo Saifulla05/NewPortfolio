@@ -1,0 +1,564 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    scroll-padding-top: 3.5rem;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.hero {
+    height: 85vh;
+    width: 100%;
+    background-image: url(img.avif);
+    background-size: cover;
+    background-position: center;
+    background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('img.avif');
+    background-size: cover;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    transition: 0.6s;
+    padding-top: 4.5rem;
+    padding-left: 8%;
+    padding-right: 8%;
+    z-index: 100000;
+}
+
+nav i {
+    color: #f9004d;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: .2rem;
+    background: var(--main-color);
+    left: 0;
+    bottom: -.4rem;
+    transition: ease.40s;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+.checkbtn {
+    font-size: 3.0rem;
+    color: #f1f1f1;
+    float: right;
+    line-height: 8.0rem;
+    margin-right: 4.0rem;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
+
+.checkbtn {
+    display: none;
+}
+
+nav.sticky {
+    padding: .5rem 10rem;
+    background-color: #101010;
+}
+
+nav.sticky .logo,
+nav.sticky ul li a html {
+    scroll-behavior: smooth;
+}
+
+.logo {
+    color: white;
+    font-size: 3.5rem;
+    letter-spacing: .1rem;
+    cursor: pointer;
+}
+
+span {
+    color: #f9004d;
+}
+
+nav ul li {
+    list-style-type: none;
+    font-size: 18px;
+    display: inline-block;
+    padding: 1.0rem 2.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+nav ul li a:hover {
+    color: #f9004d;
+    transition: .4s;
+}
+
+.btn {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: .2rem solid transparent;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 1.0rem 2.5rem;
+    border-radius: 3.0rem;
+    transition: transform .4s;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+}
+
+h1 {
+    color: white;
+    margin: 2.0rem 0rem 2.0rem;
+    font-size: 7.5rem;
+}
+
+h3 {
+    color: white;
+    font-size: 4.0rem;
+    margin-bottom: 5.0rem;
+}
+
+h4 {
+    color: #fcfc;
+    letter-spacing: .2rem;
+    font-size: 2.0rem;
+}
+
+.about {
+    width: 100%;
+    padding: 10.0rem 0rem;
+    background-color: #191919;
+}
+
+.about img {
+    height: auto;
+    width: 43.0rem;
+}
+
+.about-text {
+    width: 55.0rem;
+}
+
+.main {
+    width: 113.0rem;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-text h2 {
+    color: white;
+    font-size: 7.5rem;
+    text-transform: capitalize;
+    margin-bottom: 2.0rem;
+}
+
+.about-text h5 {
+    color: white;
+    letter-spacing: .2rem;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    text-transform: capitalize;
+}
+
+.about-text p {
+    color: #fcfc;
+    letter-spacing: .1rem;
+    line-height: 2.8rem;
+    font-size: 1.8rem;
+    margin-bottom: 4.5rem;
+}
+
+button {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: .2rem solid transparent;
+    font-weight: bold;
+    padding: 1.3rem 3.0rem;
+    border-radius: 3.0rem;
+    transition: .4s;
+}
+
+button:hover {
+    background-color: transparent;
+    border: .2rem solid #f9004d;
+    cursor: pointer;
+}
+
+.skills {
+    width: 100%;
+    max-width: 60.0rem;
+    padding: 0 2.0rem;
+}
+
+.skill-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #f1f1f1;
+    text-transform: uppercase;
+    margin: 2.0rem 0;
+}
+
+.skill-bar {
+    height: 1.4rem;
+    background: #282828;
+    border-radius: .3rem;
+}
+
+.skill-per {
+    height: 1.4rem;
+    background: #f9004d;
+    border-radius: .3rem;
+    position: relative;
+    animation: fillBars 2.5s 1;
+}
+
+.skill-per::before {
+    content: attr(per);
+    position: absolute;
+    padding: .4rem .6rem;
+    background: #f1f1f1;
+    border-radius: .4rem;
+    font-size: 1.2rem;
+    top: -3.5rem;
+    right: 0;
+    transform: translateX(50%);
+}
+
+.skill-per::after {
+    content: "";
+    position: absolute;
+    width: 1.0rem;
+    height: 1.0rem;
+    background: #f1f1f1;
+    top: -2.0rem;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: .2rem;
+}
+
+@keyframes fillBars {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+.service {
+    background: #101010;
+    width: 100%;
+    padding: 10.0rem 0rem;
+}
+
+.title h2 {
+    color: white;
+    font-size: 7.5rem;
+    width: 113.0rem;
+    margin: 3.0rem auto;
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40.0rem;
+}
+
+.card {
+    height: 36.5rem;
+    width: 33.5rem;
+    padding: 2.0rem 3.5rem;
+    background: #191919;
+    border-radius: 2.0rem;
+    margin: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card i {
+    font-size: 5.0rem;
+    display: block;
+    text-align: center;
+    margin: 2.5rem 0rem;
+    color: #f9004d;
+
+}
+
+
+h5 {
+    color: white;
+    font-size: 2.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.pra p {
+    color: #fcfc;
+    font-size: 1.6rem;
+    line-height: 2.7rem;
+    margin-bottom: 2.5rem;
+}
+
+.card .button {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: .2rem solid transparent;
+    font-weight: bold;
+    padding: .9rem 2.2rem;
+    border-radius: 3.0rem;
+    transition: .4s;
+}
+
+.card .button:hover {
+    background-color: transparent;
+    border: .2rem solid #f9004d;
+    cursor: pointer;
+}
+
+.Demo{
+    background: #191919;
+    width: 100%;
+    padding: 10.0rem 0rem;
+}
+.Cerficate h2{
+    color: white;
+    font-size: 7.5rem;
+    width: 113.0rem;
+    margin: 3.0rem auto;
+    text-align: center;
+}
+.Demo img{
+    width: 550px;
+    height: 350px;
+    padding-left: 10%;
+
+}
+
+
+.contact-me {
+    width: 100%;
+    height: 100%;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-me p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+}
+
+.contact-me form input,
+form textarea {
+    width: 50%;
+    padding: 1.7rem;
+    border: none;
+    outline: none;
+    background: #101010;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    border-radius: 1.0rem;
+}
+
+.contact-me form {
+    text-align: center;
+}
+
+.contact-me textarea {
+    resize: none;
+    height: 20.0rem;
+}
+
+.contact-me .button-two {
+    background-color: #f9004d;
+    color: white;
+    text-decoration: none;
+    border: .2rem solid transparent;
+    font-weight: bold;
+    padding: 1.3rem 3.0rem;
+    border-radius: 3.0rem;
+    transition: .4s;
+}
+
+.contact-me .button-two:hover {
+    background-color: transparent;
+    border: .2rem solid #f9004d;
+    cursor: pointer;
+}
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 40.0rem;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p:nth-child(1) {
+    font-size: 3.0rem;
+    color: white;
+    margin-bottom: 2.0rem;
+    font-weight: bold;
+}
+
+footer p:nth-child(2) {
+    color: white;
+    font-size: 1.7rem;
+    width: 50.0rem;
+    text-align: center;
+    line-height: 2.6rem;
+}
+
+.social {
+    display: flex;
+}
+
+.social a {
+    width: 4.5rem;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9004d;
+    border-radius: 50%;
+    margin: 2.2rem 1.0rem;
+    color: white;
+    text-decoration: none;
+    font-size: 2.0rem;
+}
+
+.social a:hover {
+    transform: scale(1.3);
+    transition: .3s;
+}
+
+.end {
+    position: absolute;
+    color: #f9004d;
+    bottom: 3.5rem;
+    font-size: 1.4rem;
+}
+
+@media(max-width:990px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px) {
+    html {
+        font-size: 45%;
+    }
+}
+
+@media(max-width:480px) {
+    html {
+        font-size: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background-image: url(img.avif);
+    }
+}
+
+@media (max-width: 480px) {
+    .card img {
+        width: 50px;
+        height: 40px;
+    }
+}
+
+@media(max-width:990px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media(max-width:990px) {
+    .checkbtn {
+        display: block;
+    }
+
+    ul {
+        position: fixed;
+        width: 30%;
+        height: 100vh;
+        background: #101010;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+        color: #f9004d;
+    }
+
+    #check:checked~ul {
+        left: 0;
+    }
+}
